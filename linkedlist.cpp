@@ -99,16 +99,77 @@ void insertafter(node* pre_node,int new_data)
 // if(temp==NULL) return 0;
 //   return temp->data;
 // }
-int printmiddle(node*head){
-  node*slow=head;
-  node*fast=head;
-  if(head!=NULL){
-    while(fast!=NULL&&fast->next!=NULL){
-      fast=fast->next->next;
-      slow=slow->next;
-    }return slow->data;
-  }
-}
+// int printmiddle(node*head){
+//   node*slow=head;
+//   node*fast=head;
+//   if(head!=NULL){
+//     while(fast!=NULL&&fast->next!=NULL){
+//       fast=fast->next->next;
+//       slow=slow->next;
+//     }return slow->data;
+//   }
+// }
+
+// int count(node*head,int key){
+//   node*temp=head;
+//   int c=0;
+//   while(temp!=NULL){
+//     if(temp->data==key) {
+//       c++;
+//     }
+//     temp=temp->next;
+//   }return c;
+// }
+// int detectloop(node*head)
+// {
+//   node*slow=head;
+//   node*fast=head;
+//   while(slow&&fast&&fast->next)
+//   {
+//     slow=slow->next;
+//     fast=fast->next->next;
+//     if(slow==fast){return 1;}
+//   }return 0;
+// }
+// void removeduplicates(node*head){
+//   node*temp=head;
+//   node*temp2;
+//   if(temp==NULL){return;}
+//   while(temp->next!=NULL){
+//     if(temp->data==temp->next->data){
+//       temp2=temp->next->next;
+//       delete temp->next;
+//       temp->next=temp2;
+//
+//     }
+//     else{
+//       temp=temp->next;
+//     }
+//   }
+// }
+// void removeduplicates(node*head)
+// {
+//   node* temp=head;node* temp2;node* dup;
+//
+//   while(temp!=NULL && temp->next!=NULL)
+//   {
+//     temp2=temp;
+//     while(temp2->next!=NULL)
+//     {
+//       if(temp->data==temp2->next->data)
+//       {
+//         dup=temp2->next;
+//         temp2->next=temp2->next->next;
+//         delete dup;
+//       }
+//       else
+//       {
+//         temp2=temp2->next;
+//       }
+//     }
+//     temp=temp->next;
+//   }
+// }
 void printlist(node* n)
 {
   while(n!=NULL){
@@ -120,12 +181,13 @@ void printlist(node* n)
 
 int main(){
   node* head=NULL;
-  append(&head,4);
-  push(&head,6);
+  push(&head,5);
+  push(&head,8);
   push(&head,7);
-  push(&head,9);
-  append(&head,5);
-  insertafter(head->next,8);
-cout<<printmiddle(head);
+  push(&head,5);
+  push(&head,5);
+
+
+
   printlist(head);
 }
