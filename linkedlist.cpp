@@ -77,14 +77,14 @@ void insertafter(node* pre_node,int new_data)
 //         delete temp->next;
 //         temp->next=next;
 // }
-// int count(node*head){
-//   node*temp=head;
-//   int c=0;
-//   while(temp!=NULL){
-//     c++;
-//     temp=temp->next;
-//   }return c;
-// }
+int count(node*head){
+  node*temp=head;
+  int c=0;
+  while(temp!=NULL){
+    c++;
+    temp=temp->next;
+  }return c;
+}
 // bool search(node*head,int key){
 //   node*temp=head;
 //   while(temp!=NULL)
@@ -170,6 +170,125 @@ void insertafter(node* pre_node,int new_data)
 //     temp=temp->next;
 //   }
 // }
+
+                          // swap to be done
+
+// void movetofront(node** head)
+// {
+//   if(*head==NULL||((*head)->next)==NULL)
+//   {
+//     return;
+//   }
+//   node* secl=NULL;
+//   node*last=*head;
+//   while(last->next!=NULL)
+//   {
+//     secl=last;
+//     last=last->next;
+//   }
+//   secl->next=NULL;
+//   last->next=*head;
+//   *head=last;
+// }
+// int getintersectionnode(node* head1,node*head2)
+// {
+//   int q=count(head1);
+//   int w=count(head2);
+//   int d;
+//   if(q>w)
+//   {
+//     d=q-w;
+//     return gin(d,head1,head2);
+//   }
+//   else
+//   {
+//     d=w-q;
+//     return gin(d,head2,head1);
+//   }
+// }
+// int gin(int key,node* head1,node*head2)
+// {
+//   node* c1=head1;
+//   node*c2=head2;
+//   for(int i=0;i<d;i++)
+//   {
+//     if(c1==NULL) {return -1;}
+//     c1=c1->next;
+//   }
+//
+//   while(c1!=NULL&&c2!=NULL)
+//   {
+//     if(c1==c2){return c1->data;}
+//     c1=c1->next;
+//     c2=c2->next;
+//
+//   }return -1;
+// }
+                            //sorting to be done
+
+
+// void evenodd(node** head)
+// {
+//   node* es=NULL;  //evenstart
+//   node* ee=NULL;
+//   node* os=NULL;
+//   node* oe=NULL;
+//   node*temp=*head;
+//   while(temp!=NULL)
+//   {
+//     int v=temp->data;
+//     if(v%2==0)
+//     {
+//       if(es==NULL)
+//       {
+//         es=temp;
+//         ee=es;
+//       }
+//       else
+//       {
+//         ee->next=temp;
+//         ee=ee->next;
+//       }
+//
+//     }
+//
+//   else
+//   {
+//     if(os==NULL)
+//     {
+//       os=temp;
+//       oe=os;
+//     }
+//     else
+//     {
+//       oe->next=temp;
+//       oe=oe->next;
+//     }
+//   }
+//   temp=temp->next;
+//   }
+//
+//   if(os==NULL ||es==NULL){return ;}
+//   ee->next=os;
+//   oe->next=NULL;
+//   *head=es;
+//
+// }
+
+
+// void reverse(node**head)
+// {
+//   node* r=NULL;
+//   node*q=NULL;
+//   node*p=*head;
+//   while(p!=NULL)
+//   {
+//     r=q;
+//     q=p;
+//     p=p->next;
+//     q->next=r;
+//   }*head=q;
+// }
 void printlist(node* n)
 {
   while(n!=NULL){
@@ -179,13 +298,15 @@ void printlist(node* n)
 }
 
 
+
 int main(){
   node* head=NULL;
   push(&head,5);
-  push(&head,8);
-  push(&head,7);
-  push(&head,5);
-  push(&head,5);
+  push(&head,4);
+  push(&head,3);
+  push(&head,2);
+  push(&head,1);
+
 
 
 
