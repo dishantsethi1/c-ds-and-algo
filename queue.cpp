@@ -2,44 +2,57 @@
 using namespace std;
 class queue
 {
-public:
-  int front;
-  int rear;
+private:
+  int f;
+  int r;
   int size;
   int *a;
+public:
+  queue(){f=r=-1;a=new int[5];}
+  queue(int size){f=r=-1;this->size=size;a = new int[this->size];}
+  void enqueue(int x);
+  int dequeue();
+  void display();
 };
-void create(queue *q,int size)
+void queue:: enqueue(int x)
 {
-  q->size=size;
-  q->front=q->rear=-1;
-  q->a=new int[q->size];
-}
-void enqueue(queue *q,int x)
-{
-  if(q->rear==q->size-1) cout<<"full";
+  if(r==size-1){ cout<<"full";}
   else
   {
-    q->rear++;
-    q->a[q->rear]=x;
+    r++;
+    a[r]=x;
   }
 }
-void dequeue(queue *q)
+int queue::dequeue()
 {
   int x=-1;
-  if(q->front==q->rear) cout<<"empty"<<endl;
+  if(f==r){ cout<<"empty"<<endl;}
   else
   {
-  q->front++;
-  x=q->a[q->front];
+  f++;
+  x=a[f];
   }
   cout<<x<<endl;
 }
-void display(queue q)
+void queue::display()
 {int i;
-  for(i=q.front+1;i<=q.rear;i++)
+  for(i=(f+1);i<=r;i++)
   {
-    cout<<q.a[i]<<" ";
+    cout<<a[i]<<" ";
   }cout<<endl;
+}
+
+int main()
+{
+  queue q(5);
+
+  q.enqueue(3);
+  q.enqueue(6);
+  q.enqueue(9);
+  q.enqueue(12);
+
+  q.display();
+  return 0;
 }
 
 
@@ -80,17 +93,3 @@ void display(queue q)
 //   } while(i!=(q.rear+1)%q.size);
 //    cout<<endl;
 // }
-
-
-
-int main()
-{
-  queue q;
-  create(&q,5);
-  enqueue(&q,3);
-  enqueue(&q,6);
-  enqueue(&q,9);
-  enqueue(&q,12);
-  dequeue(&q);
-  display(q);
-}
